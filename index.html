@@ -11,6 +11,8 @@
       font-family: 'Courier New', monospace;
       padding: 2rem;
       display: flex;
+      align-items: center;
+      text-align: center;
       flex-direction: column;
       justify-content: center;
       height: 100vh;
@@ -34,11 +36,11 @@
     const lines = [
       "booting up graduation.exe...",
       "loading...",
-      "Success: Bachelor of Computer Science granted to Luis 🎓",
+      "Success: Bachelor of Computer Science granted to Luis \ud83c\udf93",
       "Deploying future...",
       "",
-      "💼 GitHub: https://github.com/yourusername",
-      "📄 Resume: https://yourdomain.com/resume.pdf",
+      "💼 GitHub: https://github.com/luisna2",
+      "📄 Resume: https://luisna2.github.io/graduation-page/Resume25.pdf",
       "",
       "👋 Thanks for scanning. Now go hire me!"
     ];
@@ -48,9 +50,18 @@
 
     function typeLine() {
       if (i < lines.length) {
-        terminal.innerHTML += lines[i] + "\n";
+        const line = lines[i];
+
+        if (line.includes("GitHub:")) {
+          terminal.innerHTML += `💼 GitHub: <a href="https://github.com/luisna2" target="_blank">github.com/luisna2</a>\n`;
+        } else if (line.includes("Resume:")) {
+          terminal.innerHTML += `📄 Resume: <a href="https://luisna2.github.io/graduation-page/Resume25.pdf" target="_blank">Resume25.pdf</a>\n`;
+        } else {
+          terminal.innerHTML += line + "\n";
+        }
+
         i++;
-        setTimeout(typeLine, 500);
+        setTimeout(typeLine, 1000);
       }
     }
 
