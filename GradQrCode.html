@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Luis Graduated!</title>
+  <style>
+    body {
+      background-color: #0f0f0f;
+      color: #33ff33;
+      font-family: 'Courier New', monospace;
+      padding: 2rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      height: 100vh;
+    }
+    #terminal {
+      white-space: pre-line;
+    }
+    a {
+      color: #66ccff;
+      text-decoration: none;
+    }
+    a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+  <div id="terminal"></div>
+
+  <script>
+    const lines = [
+      "booting up graduation.exe...",
+      "loading...",
+      "Success: Bachelor of Computer Science granted to Luis 🎓",
+      "Deploying future...",
+      "",
+      "💼 GitHub: https://github.com/yourusername",
+      "📄 Resume: https://yourdomain.com/resume.pdf",
+      "",
+      "👋 Thanks for scanning. Now go hire me!"
+    ];
+
+    let i = 0;
+    const terminal = document.getElementById("terminal");
+
+    function typeLine() {
+      if (i < lines.length) {
+        terminal.innerHTML += lines[i] + "\n";
+        i++;
+        setTimeout(typeLine, 500);
+      }
+    }
+
+    typeLine();
+  </script>
+</body>
+</html>
